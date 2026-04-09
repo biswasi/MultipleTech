@@ -1,0 +1,18 @@
+/*  Given the names and grades for each student in a class of  students, store them in a nested list and print the name(s) of any student(s) having the second lowest grade.*/
+if __name__ == '__main__':
+ studentsAndResults = []
+ scores = []
+ n = int(input())
+ if not(2 <= n <= 5):
+  raise ValueError(f"{n} means mismatch of number of students!")
+ for _ in range(n):
+     name = input()
+     score = float(input())
+     pair = [name, score]
+     studentsAndResults.append(pair)
+     scores.append(score)
+     
+scndLowest = sorted(set(scores))[1]
+selectedStudents = sorted([sar[0] for sar in studentsAndResults if sar[1]==scndLowest])
+for s in selectedStudents:
+   print(s)
